@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://0x674llduhno"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_8ectk"]
+[ext_resource type="Texture2D" uid="uid://botwqn6t0pr3x" path="res://background.png" id="1_j24mq"]
+[ext_resource type="FontFile" uid="uid://bm8g0thgkd7e7" path="res://GrapeSoda.ttf" id="2_f0hup"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ob2u1"]
+texture = ExtResource("1_j24mq")
+modulate_color = Color(0.860369, 0.860369, 0.860369, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dlfj"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2gog"]
+bg_color = Color(0.821789, 0.821789, 0.821789, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2akoi"]
+bg_color = Color(0.65834, 0.65834, 0.65834, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_116b8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5icj"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ectk")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ob2u1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = 7.0
+offset_right = 114.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_8dlfj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2gog")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2akoi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_116b8")
+text = "Start game"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_i5icj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2gog")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2akoi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_116b8")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 244.0
+offset_right = 686.0
+offset_bottom = 353.0
+theme_override_fonts/font = ExtResource("2_f0hup")
+theme_override_font_sizes/font_size = 40
+text = "maze gunner 3D"
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_exit_pressed"]
